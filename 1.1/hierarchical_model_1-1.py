@@ -15,7 +15,7 @@ def simulate():
   exp_scale = 10
   sigma = 1
   observations = np.zeros((N, D))
-  mus = np.random.exponential(scale=10, size=N)
+  mus = np.random.exponential(scale=exp_scale, size=N)
   for i, mu in enumerate(mus):
     observations[i] = np.random.normal(loc=mu, scale=sigma, size=D)
   print "Actual exp_scale: %s"%exp_scale
