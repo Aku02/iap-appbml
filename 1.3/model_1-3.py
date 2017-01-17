@@ -7,9 +7,28 @@ import matplotlib.pyplot as plt
 
 def simulate():
   print '\tGenerating simulated data...'
-
-
-
+  N = 20
+  D = 15
+  L = 10
+  features = np.random.normal(loc=0, scale=1, size=(N, L))
+  weights = np.arange(-L/2, L/2)
+  mu = features.dot(weights)
+  sigma_mu = 5
+  sigma_sigma = 1
+  sigma = np.abs(np.random.normal(loc=sigma_mu, scale=sigma_sigma, size=N))
+  observations = np.zeros((N, D))
+  for i in range(N):
+    observations[i] = np.random.normal(loc=mu[i], scale=sigma[i], size=D)
+  dataset = {
+    'N': N,
+    'D': D,
+    'L': L,
+    'observations': observations,
+    'features': features,
+  }
+  print "Actual weights: %s"%weights
+  print "Actual sigma_mu: %s"%sigma_mu
+  print "Actual sigma_sigma: %s"%sigma_sigma
   return dataset
 
 

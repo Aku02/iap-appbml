@@ -10,8 +10,14 @@ def simulate():
 
   ###################################################
   ## Your code here
-
-
+  N = 30
+  D = 10
+  weights = np.arange(-5, 5)
+  sigma = 3
+  features = np.random.normal(loc=0, scale=1, size=(N,D))
+  observations = np.random.normal(loc=features.dot(weights), scale=sigma)
+  print "Actual weights: %s"%weights
+  print "Actual sigma: %s"%sigma
   ## Your code here
   ###################################################
 
